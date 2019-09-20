@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "Generated";
+
+enum AirFeatureType {
+	INVALID = 0;
+	O = 1;
+	CO2 = 2;
+	CO = 3;
+	TEMPERATURE = 4;
+	HUMIDITY = 5;
+}
+
+message AirQualityResponse {
+	double quality = 1;
+	AirFeatureType air_feature = 2;
+}
+
+message AirQualityRequest {
+	AirFeatureType air_feature = 1;
+}
+
+service AirQualityService {
+	rpc GetAirQuality(AirQualityRequest) returns (AirQualityResponse);
+	rpc GetAirFeatures(stream AirQualityRequest) returns (stream AirQualityResponse);
+}
