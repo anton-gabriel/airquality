@@ -20,12 +20,12 @@ namespace AirQualityServer.Utils.Messages
 
         public static string ServerClosedMessage(string host)
         {
-            return $"Server closed (hots: {host}).";
+            return $"Server closed (host: {host}).";
         }
 
         public static string ServerStartedMessage(string host)
         {
-            return $"Server started (hots: {host}).";
+            return $"Server started (host: {host}).";
         }
     }
 }
