@@ -56,7 +56,8 @@ namespace AirQualityServer
         public void Start()
         {
             GrpcServer.Start();
-            Logger.Info(LoggerMessages.ServerStartedMessage(GrpcServer.Ports.FirstOrDefault().Host));
+            var port = GrpcServer.Ports.FirstOrDefault();
+            Logger.Info(LoggerMessages.ServerStartedMessage(port.Host, port.Port));
         }
         #endregion
 
@@ -76,7 +77,8 @@ namespace AirQualityServer
         {
             CloseServerAction.Invoke();
             GrpcServer.ShutdownAsync().Wait();
-            Logger.Info(message: LoggerMessages.ServerClosedMessage(GrpcServer.Ports.FirstOrDefault().Host));
+            var port = GrpcServer.Ports.FirstOrDefault();
+            Logger.Info(message: LoggerMessages.ServerClosedMessage(port.Host, port.Port));
         }
         #endregion
     }

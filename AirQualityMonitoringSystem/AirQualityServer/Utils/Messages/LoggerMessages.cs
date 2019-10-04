@@ -18,14 +18,14 @@ namespace AirQualityServer.Utils.Messages
                  .Aggregate((first, second) => $"{first}, {second}");
         }
 
-        public static string ServerClosedMessage(string host)
+        public static string ServerClosedMessage(string host, int peer)
         {
-            return $"Server closed (host: {host}).";
+            return $"Server closed ({host}:{peer}).";
         }
 
-        public static string ServerStartedMessage(string host)
+        public static string ServerStartedMessage(string host, int peer)
         {
-            return $"Server started (host: {host}).";
+            return $"Server started ({host}:{peer}).";
         }
     }
 }
