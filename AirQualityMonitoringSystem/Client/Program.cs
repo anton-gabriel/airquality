@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    class Program
+    internal sealed class Program
     {
         static async Task Main(string[] args)
         {

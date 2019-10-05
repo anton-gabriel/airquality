@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>37bacb12-732c-4a71-95a2-ec78ee1a01fd</ProjectGuid>
+    <ProjectGuid>f1a43add-ede0-4b79-b21f-87ac870d2e69</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>PythonClient.py</StartupFile>
     <SearchPath>
@@ -22,12 +22,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="air_quality_pb2.py" />
     <Compile Include="air_quality_pb2_grpc.py" />
     <Compile Include="PythonClient.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

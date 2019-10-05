@@ -2,7 +2,7 @@
 
 setlocal
 
-set TOOLS_PATH=packages\Grpc.Tools.2.23.0\tools\windows_x64
+set TOOLS_PATH=C:\Users\Home\.nuget\packages\grpc.tools\2.23.0\tools\windows_x64
 set PROTOS_PATH=Protos
 set OUTPUT_PATH=AirQuality\Generated
 
