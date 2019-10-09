@@ -7,11 +7,10 @@ namespace AirQualityServer.Utils.Configuration
 {
     internal sealed class Configuration
     {
-
         #region Constructors
         public Configuration()
         {
-            ServerData = LoadServerData();
+            Settings = LoadServerData();
             ConfigLogger();
         }
         #endregion
@@ -44,21 +43,21 @@ namespace AirQualityServer.Utils.Configuration
         }
         #endregion
 
-        public ServerData ServerData { get; private set; }
+        public Settings Settings { get; private set; }
         #endregion
 
         #region Private methods
-        private ServerData LoadServerData()
+        private Settings LoadServerData()
         {
-            return JsonReader<ServerData>.TryReadObject(Paths.ConfigFile);
+            return JsonReader<Settings>.TryReadObject(Paths.ConfigFile);
         }
 
-        private static void ConfigLogger()
+        private void ConfigLogger()
         {
             var config = new NLog.Config.LoggingConfiguration();
             var logfile = new NLog.Targets.FileTarget()
             {
-                FileName = Paths.LoggingFile
+                FileName = Settings.LoggingFile
             };
             var logconsole = new NLog.Targets.ConsoleTarget();
 

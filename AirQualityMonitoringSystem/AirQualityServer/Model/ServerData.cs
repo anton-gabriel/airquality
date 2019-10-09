@@ -6,9 +6,9 @@ namespace AirQualityServer.Model
     {
         #region Properties
         [JsonProperty]
-        public string Host { get; private set; }
+        public string Host { get;  set; }
         [JsonProperty]
-        public int Port { get; private set; }
+        public int Port { get;  set; }
         #endregion
     }
 }
