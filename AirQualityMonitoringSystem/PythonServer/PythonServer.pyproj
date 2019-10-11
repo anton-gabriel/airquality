@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PythonServer</Name>
     <RootNamespace>PythonServer</RootNamespace>
-    <InterpreterId>CondaEnv|CondaEnv|ml</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|Anaconda3</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="KeyboardSimulator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonServer.py" />
     <Compile Include="RemoteKeyboardService.py">
       <SubType>Code</SubType>
@@ -35,6 +38,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|Anaconda3" />
     <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

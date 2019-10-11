@@ -12,7 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>AirQualityPython</Name>
     <RootNamespace>AirQualityPython</RootNamespace>
-    <InterpreterId>CondaEnv|CondaEnv|ml</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|Anaconda3</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +29,7 @@
     <Compile Include="remote_keyboard_pb2_grpc.py" />
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|Anaconda3" />
     <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
