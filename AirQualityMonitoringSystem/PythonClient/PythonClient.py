@@ -1,17 +1,21 @@
 import sys
 import grpc_tools
 import grpc
-import air_quality_pb2
-import air_quality_pb2_grpc
+import remote_keyboard_pb2
+import remote_keyboard_pb2_grpc
+
+def send_keys():
+    yield remote_keyboard_pb2.KeyPressRequest(key_name='a')
+    yield remote_keyboard_pb2.KeyPressRequest(key_name='a')
+    yield remote_keyboard_pb2.KeyPressRequest(key_name='a')
+    yield remote_keyboard_pb2.KeyPressRequest(key_name='a')
 
 def main():
     channel = grpc.insecure_channel('localhost:50051')
-    stub = air_quality_pb2_grpc.AirQualityServiceStub(channel)
-
+    stub = remote_keyboard_pb2_grpc.RemoteKeyboardServiceStub(channel)
     
-    request = air_quality_pb2.AirQualityRequest(air_feature=air_quality_pb2.CO2)
     print("Client sending request")
-    result = stub.GetAirQuality(request)
+    result = stub.SendKeyboardCalls(send_keys())
     print(f'Response: {result}')
     
 

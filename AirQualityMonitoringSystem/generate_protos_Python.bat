@@ -3,7 +3,7 @@
 setlocal
 
 set PROTOS_PATH=Protos
-set OUTPUT_PATH=PythonClient
+set OUTPUT_PATH=AirQualityPython
 
 if not exist %OUTPUT_PATH% mkdir %OUTPUT_PATH%
 
