@@ -15,10 +15,10 @@ namespace Generated {
     static readonly grpc::Marshaller<global::Generated.KeyPressRequest> __Marshaller_KeyPressRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Generated.KeyPressRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Generated.KeyPressResponse> __Marshaller_KeyPressResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Generated.KeyPressResponse.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse> __Method_SendKeyboardCalls = new grpc::Method<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse>(
-        grpc::MethodType.DuplexStreaming,
+    static readonly grpc::Method<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse> __Method_SendKeyboardCall = new grpc::Method<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse>(
+        grpc::MethodType.Unary,
         __ServiceName,
-        "SendKeyboardCalls",
+        "SendKeyboardCall",
         __Marshaller_KeyPressRequest,
         __Marshaller_KeyPressResponse);
 
@@ -32,7 +32,7 @@ namespace Generated {
     [grpc::BindServiceMethod(typeof(RemoteKeyboardService), "BindService")]
     public abstract partial class RemoteKeyboardServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task SendKeyboardCalls(grpc::IAsyncStreamReader<global::Generated.KeyPressRequest> requestStream, grpc::IServerStreamWriter<global::Generated.KeyPressResponse> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Generated.KeyPressResponse> SendKeyboardCall(global::Generated.KeyPressRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -62,13 +62,21 @@ namespace Generated {
       {
       }
 
-      public virtual grpc::AsyncDuplexStreamingCall<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse> SendKeyboardCalls(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Generated.KeyPressResponse SendKeyboardCall(global::Generated.KeyPressRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SendKeyboardCalls(new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SendKeyboardCall(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncDuplexStreamingCall<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse> SendKeyboardCalls(grpc::CallOptions options)
+      public virtual global::Generated.KeyPressResponse SendKeyboardCall(global::Generated.KeyPressRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_SendKeyboardCalls, null, options);
+        return CallInvoker.BlockingUnaryCall(__Method_SendKeyboardCall, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Generated.KeyPressResponse> SendKeyboardCallAsync(global::Generated.KeyPressRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendKeyboardCallAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Generated.KeyPressResponse> SendKeyboardCallAsync(global::Generated.KeyPressRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SendKeyboardCall, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override RemoteKeyboardServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -82,7 +90,7 @@ namespace Generated {
     public static grpc::ServerServiceDefinition BindService(RemoteKeyboardServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SendKeyboardCalls, serviceImpl.SendKeyboardCalls).Build();
+          .AddMethod(__Method_SendKeyboardCall, serviceImpl.SendKeyboardCall).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -91,7 +99,7 @@ namespace Generated {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RemoteKeyboardServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SendKeyboardCalls, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse>(serviceImpl.SendKeyboardCalls));
+      serviceBinder.AddMethod(__Method_SendKeyboardCall, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Generated.KeyPressRequest, global::Generated.KeyPressResponse>(serviceImpl.SendKeyboardCall));
     }
 
   }

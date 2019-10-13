@@ -24,15 +24,15 @@ namespace Generated {
     static RemoteKeyboardReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVyZW1vdGVfa2V5Ym9hcmQucHJvdG8iMwoQS2V5UHJlc3NSZXNwb25zZRIP",
-            "Cgdjb250ZW50GAEgASgJEg4KBnJlc3VsdBgCIAEoCCIiCg9LZXlQcmVzc1Jl",
-            "cXVlc3QSDwoHY29udGVudBgBIAEoCTJVChVSZW1vdGVLZXlib2FyZFNlcnZp",
-            "Y2USPAoRU2VuZEtleWJvYXJkQ2FsbHMSEC5LZXlQcmVzc1JlcXVlc3QaES5L",
-            "ZXlQcmVzc1Jlc3BvbnNlKAEwAUIMqgIJR2VuZXJhdGVkYgZwcm90bzM="));
+            "ChVyZW1vdGVfa2V5Ym9hcmQucHJvdG8iIgoQS2V5UHJlc3NSZXNwb25zZRIO",
+            "CgZyZXN1bHQYASABKAgiIgoPS2V5UHJlc3NSZXF1ZXN0Eg8KB2NvbnRlbnQY",
+            "ASABKAwyUAoVUmVtb3RlS2V5Ym9hcmRTZXJ2aWNlEjcKEFNlbmRLZXlib2Fy",
+            "ZENhbGwSEC5LZXlQcmVzc1JlcXVlc3QaES5LZXlQcmVzc1Jlc3BvbnNlQgyq",
+            "AglHZW5lcmF0ZWRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressResponse), global::Generated.KeyPressResponse.Parser, new[]{ "Content", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressResponse), global::Generated.KeyPressResponse.Parser, new[]{ "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressRequest), global::Generated.KeyPressRequest.Parser, new[]{ "Content" }, null, null, null)
           }));
     }
@@ -65,7 +65,6 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public KeyPressResponse(KeyPressResponse other) : this() {
-      content_ = other.content_;
       result_ = other.result_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -75,19 +74,8 @@ namespace Generated {
       return new KeyPressResponse(this);
     }
 
-    /// <summary>Field number for the "content" field.</summary>
-    public const int ContentFieldNumber = 1;
-    private string content_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Content {
-      get { return content_; }
-      set {
-        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 2;
+    public const int ResultFieldNumber = 1;
     private bool result_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Result {
@@ -110,7 +98,6 @@ namespace Generated {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Content != other.Content) return false;
       if (Result != other.Result) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -118,7 +105,6 @@ namespace Generated {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Content.Length != 0) hash ^= Content.GetHashCode();
       if (Result != false) hash ^= Result.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -133,12 +119,8 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Content.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Content);
-      }
       if (Result != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(8);
         output.WriteBool(Result);
       }
       if (_unknownFields != null) {
@@ -149,9 +131,6 @@ namespace Generated {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Content.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
-      }
       if (Result != false) {
         size += 1 + 1;
       }
@@ -165,9 +144,6 @@ namespace Generated {
     public void MergeFrom(KeyPressResponse other) {
       if (other == null) {
         return;
-      }
-      if (other.Content.Length != 0) {
-        Content = other.Content;
       }
       if (other.Result != false) {
         Result = other.Result;
@@ -183,11 +159,7 @@ namespace Generated {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Content = input.ReadString();
-            break;
-          }
-          case 16: {
+          case 8: {
             Result = input.ReadBool();
             break;
           }
@@ -233,9 +205,9 @@ namespace Generated {
 
     /// <summary>Field number for the "content" field.</summary>
     public const int ContentFieldNumber = 1;
-    private string content_ = "";
+    private pb::ByteString content_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Content {
+    public pb::ByteString Content {
       get { return content_; }
       set {
         content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -278,7 +250,7 @@ namespace Generated {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Content.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Content);
+        output.WriteBytes(Content);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -289,7 +261,7 @@ namespace Generated {
     public int CalculateSize() {
       int size = 0;
       if (Content.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Content);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -317,7 +289,7 @@ namespace Generated {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Content = input.ReadString();
+            Content = input.ReadBytes();
             break;
           }
         }

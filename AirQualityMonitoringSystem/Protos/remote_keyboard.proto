@@ -3,14 +3,13 @@ syntax = "proto3";
 option csharp_namespace = "Generated";
 
 message KeyPressResponse {
-	string content = 1;
-	bool result = 2;
+	bool result = 1;
 }
 
 message KeyPressRequest {
-	string content = 1;
+	bytes content = 1;
 }
 
 service RemoteKeyboardService {
-	rpc SendKeyboardCalls(stream KeyPressRequest) returns (stream KeyPressResponse);
+	rpc SendKeyboardCall(KeyPressRequest) returns (KeyPressResponse);
 }

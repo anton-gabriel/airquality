@@ -6,8 +6,8 @@ import remote_keyboard_pb2
 import remote_keyboard_pb2_grpc
 import remote_mouse_pb2
 import remote_mouse_pb2_grpc
-from Services.RemoteKeyboardService import RemoteKeyboardService
-from Services.RemoteMouseService import RemoteMouseService
+from RemoteKeyboardService import RemoteKeyboardService
+from RemoteMouseService import RemoteMouseService
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
@@ -25,7 +25,7 @@ def open_server(port: str):
       server.stop(0)
 
 def main():
-    open_server(port= '192.168.1.8:50051')
+    open_server(port= '192.168.1.3:50051')
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))

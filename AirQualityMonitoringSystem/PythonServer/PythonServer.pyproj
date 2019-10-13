@@ -22,19 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Utils\KeyboardSimulator.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="MouseSimulator.py" />
     <Compile Include="PythonServer.py" />
-    <Compile Include="Services\RemoteKeyboardService.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Services\RemoteMouseService.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Utils\MouseSimulator.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="RemoteKeyboardService.py" />
+    <Compile Include="RemoteMouseService.py" />
+    <Compile Include="remote_keyboard_pb2.py" />
+    <Compile Include="remote_keyboard_pb2_grpc.py" />
+    <Compile Include="remote_mouse_pb2.py" />
+    <Compile Include="remote_mouse_pb2_grpc.py" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirQualityPython\AirQualityPython.pyproj">
@@ -45,10 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

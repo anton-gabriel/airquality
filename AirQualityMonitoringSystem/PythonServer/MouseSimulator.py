@@ -18,7 +18,7 @@ class MouseSimulator(object):
          MouseSimulator.__instance = self
 
    def move_cursor(self, x, y):
-       self.__mouse.move(x, y)
+       self.__mouse.position = (x,y)
 
    def press_cursor(self, button: Button):
        self.__mouse.press(button)

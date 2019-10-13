@@ -1,13 +1,17 @@
 import sys
 import grpc_tools
 import grpc
+import pickle
 from threading import Thread
 from time import sleep
 import remote_keyboard_pb2
 import remote_keyboard_pb2_grpc
 import remote_mouse_pb2
 import remote_mouse_pb2_grpc
-from pynput.mouse import Listener
+from pynput.mouse import Button
+from pynput import keyboard, mouse
+
+keyboard_test = keyboard.Controller()
 
 port = '192.168.1.8:50051'
 
@@ -15,39 +19,47 @@ channel = grpc.insecure_channel(port)
 keyboard_stub = remote_keyboard_pb2_grpc.RemoteKeyboardServiceStub(channel)
 mouse_stub = remote_mouse_pb2_grpc.RemoteMouseServiceStub(channel)
 
+
+#-----------------------Mouse handlers---------------------------------#
 def on_move(x, y):
-    response = mouse_stub.SendMouseMovement(remote_mouse_pb2.MouseMovementRequest(x= x, y= y))
-    print(f'Mouse response: {response.result}')
+    request = remote_mouse_pb2.MouseMovementRequest(x= x, y= y)
+    response = mouse_stub.SendMouseMovement(request)
+    print(f'Response: {response}')
 
 def on_click(x, y, button, pressed):
-    pass
-    #'Pressed' if pressed else 'Released'
-    
+    request_button, request_action = remote_mouse_pb2.Left, remote_mouse_pb2.Press
+    if button == Button.right:
+        request_button = remote_mouse_pb2.Left
+    if not pressed:
+        request_action = remote_mouse_pb2.Release
+    request = remote_mouse_pb2.MouseClickRequest(button= request_button,
+                                                 action= request_action)
+    response = mouse_stub.SendMouseClick(request)
+    print(f'Response: {response}')
+#----------------------------------------------------------------------#
 
 
-def send_keys():
-    while True:
-        content = input()
-        if content == 'stop':
-            return
-        yield remote_keyboard_pb2.KeyPressRequest(content=content)
+#--------------------------Keyboard handlers---------------------------#
 
-def run():
-    print("Client sending request")
-    keyboard_responses = keyboard_stub.SendKeyboardCalls(send_keys())
-    for response in keyboard_responses:
-        print(f'Response: {response}')
+def on_key_press(key):
+    print(f'Key: {key}')
+    request = remote_keyboard_pb2.KeyPressRequest(content= pickle.dumps(key, pickle.HIGHEST_PROTOCOL))
+    response = keyboard_stub.SendKeyboardCall(request)
+    print(f'Response: {response}')
+#----------------------------------------------------------------------#
 
 
 def main():
-    run()
-    thread = Thread(target = run)
-    thread.start()
-    with Listener(
-            on_move=on_move,
-            on_click=on_click) as listener:
+    #thread = Thread(target = run)
+    #thread.start()
+    ##with mouse.Listener(
+    ##        on_move=on_move,
+    ##        on_click=on_click) as listener:
+    ##    listener.join()
+    #thread.join()
+
+    with keyboard.Listener(on_press=on_key_press) as listener:
         listener.join()
-    thread.join()
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))
