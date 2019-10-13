@@ -1,24 +1,23 @@
 import sys
 import grpc
 import time
-import logging
 from concurrent import futures
 import remote_keyboard_pb2
 import remote_keyboard_pb2_grpc
-from RemoteKeyboardService import RemoteKeyboardService
+import remote_mouse_pb2
+import remote_mouse_pb2_grpc
+from Services.RemoteKeyboardService import RemoteKeyboardService
+from Services.RemoteMouseService import RemoteMouseService
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
-def config_logger():
-    logging.basicConfig(filename='server.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
-
 def open_server(port: str):
-  server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
+  server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
   remote_keyboard_pb2_grpc.add_RemoteKeyboardServiceServicer_to_server(RemoteKeyboardService(), server)
+  remote_mouse_pb2_grpc.add_RemoteMouseServiceServicer_to_server(RemoteMouseService(), server)
   server.add_insecure_port(port)
   server.start()
-  logging.info(f'Server started')
   try:
       while True:
           time.sleep(_ONE_DAY_IN_SECONDS)
@@ -26,8 +25,7 @@ def open_server(port: str):
       server.stop(0)
 
 def main():
-    config_logger()
-    open_server(port= '[::]:50051')
+    open_server(port= '192.168.1.8:50051')
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "Generated";
+
+enum ButtonType {
+	InvalidButton= 0;
+	Left = 1;
+	Right = 2;
+}
+
+enum ActionType {
+	InvalidAction = 0;
+	Press = 1;
+	Release = 2;
+}
+
+message MouseMovementResponse {
+	bool result = 1;
+}
+
+message MouseMovementRequest {
+	int32 x = 1;
+	int32 y = 2;
+}
+
+message MouseClickRequest {
+	ButtonType button = 1;
+	ActionType action = 2;
+}
+
+message MouseClickResponse {
+	bool result = 1;
+}
+
+service RemoteMouseService {
+	rpc SendMouseMovement(MouseMovementRequest) returns (MouseMovementResponse);
+	rpc SendMouseClick(MouseClickRequest) returns (MouseClickResponse);
+}

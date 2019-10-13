@@ -3,12 +3,12 @@ syntax = "proto3";
 option csharp_namespace = "Generated";
 
 message KeyPressResponse {
-	string key_name = 1;
+	string content = 1;
 	bool result = 2;
 }
 
 message KeyPressRequest {
-	string key_name = 1;
+	string content = 1;
 }
 
 service RemoteKeyboardService {

@@ -27,13 +27,13 @@ namespace Generated {
             "ChFhaXJfcXVhbGl0eS5wcm90byJLChJBaXJRdWFsaXR5UmVzcG9uc2USDwoH",
             "cXVhbGl0eRgBIAEoARIkCgthaXJfZmVhdHVyZRgCIAEoDjIPLkFpckZlYXR1",
             "cmVUeXBlIjkKEUFpclF1YWxpdHlSZXF1ZXN0EiQKC2Fpcl9mZWF0dXJlGAEg",
-            "ASgOMg8uQWlyRmVhdHVyZVR5cGUqVAoOQWlyRmVhdHVyZVR5cGUSCwoHSU5W",
-            "QUxJRBAAEgUKAU8QARIHCgNDTzIQAhIGCgJDTxADEg8KC1RFTVBFUkFUVVJF",
-            "EAQSDAoISFVNSURJVFkQBTKMAQoRQWlyUXVhbGl0eVNlcnZpY2USOAoNR2V0",
-            "QWlyUXVhbGl0eRISLkFpclF1YWxpdHlSZXF1ZXN0GhMuQWlyUXVhbGl0eVJl",
-            "c3BvbnNlEj0KDkdldEFpckZlYXR1cmVzEhIuQWlyUXVhbGl0eVJlcXVlc3Qa",
-            "Ey5BaXJRdWFsaXR5UmVzcG9uc2UoATABQgyqAglHZW5lcmF0ZWRiBnByb3Rv",
-            "Mw=="));
+            "ASgOMg8uQWlyRmVhdHVyZVR5cGUqXgoOQWlyRmVhdHVyZVR5cGUSFQoRSW52",
+            "YWxpZEFpckZlYXR1cmUQABIFCgFPEAESBwoDQ08yEAISBgoCQ08QAxIPCgtU",
+            "RU1QRVJBVFVSRRAEEgwKCEhVTUlESVRZEAUyjAEKEUFpclF1YWxpdHlTZXJ2",
+            "aWNlEjgKDUdldEFpclF1YWxpdHkSEi5BaXJRdWFsaXR5UmVxdWVzdBoTLkFp",
+            "clF1YWxpdHlSZXNwb25zZRI9Cg5HZXRBaXJGZWF0dXJlcxISLkFpclF1YWxp",
+            "dHlSZXF1ZXN0GhMuQWlyUXVhbGl0eVJlc3BvbnNlKAEwAUIMqgIJR2VuZXJh",
+            "dGVkYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Generated.AirFeatureType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -46,7 +46,7 @@ namespace Generated {
   }
   #region Enums
   public enum AirFeatureType {
-    [pbr::OriginalName("INVALID")] Invalid = 0,
+    [pbr::OriginalName("InvalidAirFeature")] InvalidAirFeature = 0,
     [pbr::OriginalName("O")] O = 1,
     [pbr::OriginalName("CO2")] Co2 = 2,
     [pbr::OriginalName("CO")] Co = 3,

@@ -24,16 +24,16 @@ namespace Generated {
     static RemoteKeyboardReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVyZW1vdGVfa2V5Ym9hcmQucHJvdG8iNAoQS2V5UHJlc3NSZXNwb25zZRIQ",
-            "CghrZXlfbmFtZRgBIAEoCRIOCgZyZXN1bHQYAiABKAgiIwoPS2V5UHJlc3NS",
-            "ZXF1ZXN0EhAKCGtleV9uYW1lGAEgASgJMlUKFVJlbW90ZUtleWJvYXJkU2Vy",
-            "dmljZRI8ChFTZW5kS2V5Ym9hcmRDYWxscxIQLktleVByZXNzUmVxdWVzdBoR",
-            "LktleVByZXNzUmVzcG9uc2UoATABQgyqAglHZW5lcmF0ZWRiBnByb3RvMw=="));
+            "ChVyZW1vdGVfa2V5Ym9hcmQucHJvdG8iMwoQS2V5UHJlc3NSZXNwb25zZRIP",
+            "Cgdjb250ZW50GAEgASgJEg4KBnJlc3VsdBgCIAEoCCIiCg9LZXlQcmVzc1Jl",
+            "cXVlc3QSDwoHY29udGVudBgBIAEoCTJVChVSZW1vdGVLZXlib2FyZFNlcnZp",
+            "Y2USPAoRU2VuZEtleWJvYXJkQ2FsbHMSEC5LZXlQcmVzc1JlcXVlc3QaES5L",
+            "ZXlQcmVzc1Jlc3BvbnNlKAEwAUIMqgIJR2VuZXJhdGVkYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressResponse), global::Generated.KeyPressResponse.Parser, new[]{ "KeyName", "Result" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressRequest), global::Generated.KeyPressRequest.Parser, new[]{ "KeyName" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressResponse), global::Generated.KeyPressResponse.Parser, new[]{ "Content", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Generated.KeyPressRequest), global::Generated.KeyPressRequest.Parser, new[]{ "Content" }, null, null, null)
           }));
     }
     #endregion
@@ -65,7 +65,7 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public KeyPressResponse(KeyPressResponse other) : this() {
-      keyName_ = other.keyName_;
+      content_ = other.content_;
       result_ = other.result_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -75,14 +75,14 @@ namespace Generated {
       return new KeyPressResponse(this);
     }
 
-    /// <summary>Field number for the "key_name" field.</summary>
-    public const int KeyNameFieldNumber = 1;
-    private string keyName_ = "";
+    /// <summary>Field number for the "content" field.</summary>
+    public const int ContentFieldNumber = 1;
+    private string content_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string KeyName {
-      get { return keyName_; }
+    public string Content {
+      get { return content_; }
       set {
-        keyName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -110,7 +110,7 @@ namespace Generated {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (KeyName != other.KeyName) return false;
+      if (Content != other.Content) return false;
       if (Result != other.Result) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -118,7 +118,7 @@ namespace Generated {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (KeyName.Length != 0) hash ^= KeyName.GetHashCode();
+      if (Content.Length != 0) hash ^= Content.GetHashCode();
       if (Result != false) hash ^= Result.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -133,9 +133,9 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (KeyName.Length != 0) {
+      if (Content.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(KeyName);
+        output.WriteString(Content);
       }
       if (Result != false) {
         output.WriteRawTag(16);
@@ -149,8 +149,8 @@ namespace Generated {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (KeyName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyName);
+      if (Content.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
       }
       if (Result != false) {
         size += 1 + 1;
@@ -166,8 +166,8 @@ namespace Generated {
       if (other == null) {
         return;
       }
-      if (other.KeyName.Length != 0) {
-        KeyName = other.KeyName;
+      if (other.Content.Length != 0) {
+        Content = other.Content;
       }
       if (other.Result != false) {
         Result = other.Result;
@@ -184,7 +184,7 @@ namespace Generated {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            KeyName = input.ReadString();
+            Content = input.ReadString();
             break;
           }
           case 16: {
@@ -222,7 +222,7 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public KeyPressRequest(KeyPressRequest other) : this() {
-      keyName_ = other.keyName_;
+      content_ = other.content_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -231,14 +231,14 @@ namespace Generated {
       return new KeyPressRequest(this);
     }
 
-    /// <summary>Field number for the "key_name" field.</summary>
-    public const int KeyNameFieldNumber = 1;
-    private string keyName_ = "";
+    /// <summary>Field number for the "content" field.</summary>
+    public const int ContentFieldNumber = 1;
+    private string content_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string KeyName {
-      get { return keyName_; }
+    public string Content {
+      get { return content_; }
       set {
-        keyName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -255,14 +255,14 @@ namespace Generated {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (KeyName != other.KeyName) return false;
+      if (Content != other.Content) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (KeyName.Length != 0) hash ^= KeyName.GetHashCode();
+      if (Content.Length != 0) hash ^= Content.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -276,9 +276,9 @@ namespace Generated {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (KeyName.Length != 0) {
+      if (Content.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(KeyName);
+        output.WriteString(Content);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -288,8 +288,8 @@ namespace Generated {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (KeyName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyName);
+      if (Content.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -302,8 +302,8 @@ namespace Generated {
       if (other == null) {
         return;
       }
-      if (other.KeyName.Length != 0) {
-        KeyName = other.KeyName;
+      if (other.Content.Length != 0) {
+        Content = other.Content;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -317,7 +317,7 @@ namespace Generated {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            KeyName = input.ReadString();
+            Content = input.ReadString();
             break;
           }
         }

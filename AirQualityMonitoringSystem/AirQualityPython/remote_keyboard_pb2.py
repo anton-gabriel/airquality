@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=_b('\252\002\tGenerated'),
-  serialized_pb=_b('\n\x15remote_keyboard.proto\"4\n\x10KeyPressResponse\x12\x10\n\x08key_name\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\x08\"#\n\x0fKeyPressRequest\x12\x10\n\x08key_name\x18\x01 \x01(\t2U\n\x15RemoteKeyboardService\x12<\n\x11SendKeyboardCalls\x12\x10.KeyPressRequest\x1a\x11.KeyPressResponse(\x01\x30\x01\x42\x0c\xaa\x02\tGeneratedb\x06proto3')
+  serialized_pb=_b('\n\x15remote_keyboard.proto\"3\n\x10KeyPressResponse\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\x08\"\"\n\x0fKeyPressRequest\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t2U\n\x15RemoteKeyboardService\x12<\n\x11SendKeyboardCalls\x12\x10.KeyPressRequest\x1a\x11.KeyPressResponse(\x01\x30\x01\x42\x0c\xaa\x02\tGeneratedb\x06proto3')
 )
 
 
@@ -33,7 +33,7 @@ _KEYPRESSRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key_name', full_name='KeyPressResponse.key_name', index=0,
+      name='content', full_name='KeyPressResponse.content', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -59,7 +59,7 @@ _KEYPRESSRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=77,
+  serialized_end=76,
 )
 
 
@@ -71,7 +71,7 @@ _KEYPRESSREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key_name', full_name='KeyPressRequest.key_name', index=0,
+      name='content', full_name='KeyPressRequest.content', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -89,8 +89,8 @@ _KEYPRESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=79,
-  serialized_end=114,
+  serialized_start=78,
+  serialized_end=112,
 )
 
 DESCRIPTOR.message_types_by_name['KeyPressResponse'] = _KEYPRESSRESPONSE
@@ -120,8 +120,8 @@ _REMOTEKEYBOARDSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=116,
-  serialized_end=201,
+  serialized_start=114,
+  serialized_end=199,
   methods=[
   _descriptor.MethodDescriptor(
     name='SendKeyboardCalls',

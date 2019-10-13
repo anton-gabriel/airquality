@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PythonClient</Name>
     <RootNamespace>PythonClient</RootNamespace>
-    <InterpreterId>CondaEnv|CondaEnv|Anaconda3</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|ml</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +22,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <InterpreterReference Include="CondaEnv|CondaEnv|Anaconda3" />
     <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PythonServer</Name>
     <RootNamespace>PythonServer</RootNamespace>
-    <InterpreterId>CondaEnv|CondaEnv|Anaconda3</InterpreterId>
+    <InterpreterId>CondaEnv|CondaEnv|ml</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,11 +22,17 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="KeyboardSimulator.py">
+    <Compile Include="Utils\KeyboardSimulator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonServer.py" />
-    <Compile Include="RemoteKeyboardService.py">
+    <Compile Include="Services\RemoteKeyboardService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\RemoteMouseService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\MouseSimulator.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -38,8 +44,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="CondaEnv|CondaEnv|Anaconda3" />
     <InterpreterReference Include="CondaEnv|CondaEnv|ml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

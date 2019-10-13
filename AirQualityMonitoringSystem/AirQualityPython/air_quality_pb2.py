@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=_b('\252\002\tGenerated'),
-  serialized_pb=_b('\n\x11\x61ir_quality.proto\"K\n\x12\x41irQualityResponse\x12\x0f\n\x07quality\x18\x01 \x01(\x01\x12$\n\x0b\x61ir_feature\x18\x02 \x01(\x0e\x32\x0f.AirFeatureType\"9\n\x11\x41irQualityRequest\x12$\n\x0b\x61ir_feature\x18\x01 \x01(\x0e\x32\x0f.AirFeatureType*T\n\x0e\x41irFeatureType\x12\x0b\n\x07INVALID\x10\x00\x12\x05\n\x01O\x10\x01\x12\x07\n\x03\x43O2\x10\x02\x12\x06\n\x02\x43O\x10\x03\x12\x0f\n\x0bTEMPERATURE\x10\x04\x12\x0c\n\x08HUMIDITY\x10\x05\x32\x8c\x01\n\x11\x41irQualityService\x12\x38\n\rGetAirQuality\x12\x12.AirQualityRequest\x1a\x13.AirQualityResponse\x12=\n\x0eGetAirFeatures\x12\x12.AirQualityRequest\x1a\x13.AirQualityResponse(\x01\x30\x01\x42\x0c\xaa\x02\tGeneratedb\x06proto3')
+  serialized_pb=_b('\n\x11\x61ir_quality.proto\"K\n\x12\x41irQualityResponse\x12\x0f\n\x07quality\x18\x01 \x01(\x01\x12$\n\x0b\x61ir_feature\x18\x02 \x01(\x0e\x32\x0f.AirFeatureType\"9\n\x11\x41irQualityRequest\x12$\n\x0b\x61ir_feature\x18\x01 \x01(\x0e\x32\x0f.AirFeatureType*^\n\x0e\x41irFeatureType\x12\x15\n\x11InvalidAirFeature\x10\x00\x12\x05\n\x01O\x10\x01\x12\x07\n\x03\x43O2\x10\x02\x12\x06\n\x02\x43O\x10\x03\x12\x0f\n\x0bTEMPERATURE\x10\x04\x12\x0c\n\x08HUMIDITY\x10\x05\x32\x8c\x01\n\x11\x41irQualityService\x12\x38\n\rGetAirQuality\x12\x12.AirQualityRequest\x1a\x13.AirQualityResponse\x12=\n\x0eGetAirFeatures\x12\x12.AirQualityRequest\x1a\x13.AirQualityResponse(\x01\x30\x01\x42\x0c\xaa\x02\tGeneratedb\x06proto3')
 )
 
 _AIRFEATURETYPE = _descriptor.EnumDescriptor(
@@ -30,7 +30,7 @@ _AIRFEATURETYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='INVALID', index=0, number=0,
+      name='InvalidAirFeature', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -57,12 +57,12 @@ _AIRFEATURETYPE = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=157,
-  serialized_end=241,
+  serialized_end=251,
 )
 _sym_db.RegisterEnumDescriptor(_AIRFEATURETYPE)
 
 AirFeatureType = enum_type_wrapper.EnumTypeWrapper(_AIRFEATURETYPE)
-INVALID = 0
+InvalidAirFeature = 0
 O = 1
 CO2 = 2
 CO = 3
@@ -169,8 +169,8 @@ _AIRQUALITYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=244,
-  serialized_end=384,
+  serialized_start=254,
+  serialized_end=394,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAirQuality',
