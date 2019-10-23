@@ -25,7 +25,7 @@ def open_server(port: str):
       server.stop(0)
 
 def main():
-    open_server(port= '192.168.1.3:50051')
+    open_server(port= '192.168.137.1:50051')
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))

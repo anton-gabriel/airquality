@@ -13,7 +13,7 @@ from pynput import keyboard, mouse
 
 keyboard_test = keyboard.Controller()
 
-port = '192.168.1.8:50051'
+port = '10.2.60.189:50051'
 
 channel = grpc.insecure_channel(port)
 keyboard_stub = remote_keyboard_pb2_grpc.RemoteKeyboardServiceStub(channel)
