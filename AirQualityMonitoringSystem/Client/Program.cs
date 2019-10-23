@@ -7,46 +7,26 @@ namespace Client
 {
     internal sealed class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             const string Host = "localhost";
             const int Port = 50051;
 
             var channel = new Channel($"{Host}:{Port}", ChannelCredentials.Insecure);
-            var client = new AirQualityService.AirQualityServiceClient(channel);
+            var client = new SensorAirQualityService.SensorAirQualityServiceClient(channel);
 
-            var request = new AirQualityRequest
+            var request = new SensorAirQualityRequest
             {
-                AirFeature = AirFeatureType.Humidity
+                AirFeature = AirFeatureType.ECo2,
+                Value = 10.0
             };
 
             Console.WriteLine("Client sending request");
-            using (var response = client.GetAirQualityAsync(request))
+            using (var response = client.SendAirFeatureAsync(request))
             {
                 Console.WriteLine("Client received response: ");
                 Console.WriteLine(response.ResponseAsync.Result);
             }
-
-            using (var call = client.GetAirFeatures())
-            {
-                var responseReaderTask = Task.Run(async () =>
-                {
-                    while (await call.ResponseStream.MoveNext())
-                    {
-                        var res = call.ResponseStream.Current;
-                        Console.WriteLine("Received " + res);
-                    }
-                });
-
-                while (Console.ReadLine() != "stop")
-                {
-                    Enum.TryParse(Console.ReadLine(), out AirFeatureType featureType);
-                    await call.RequestStream.WriteAsync(new AirQualityRequest() { AirFeature = AirFeatureType.Co });
-                }
-                await call.RequestStream.CompleteAsync();
-                await responseReaderTask;
-            }
-
 
 
             // Shutdown

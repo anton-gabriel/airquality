@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option csharp_namespace = "Generated";
+
+enum RequestStatus {
+	InvalidRequestStatus = 0;
+	RECEIVED = 1;
+	RESOLVED = 2;
+	FAILED = 3;
+	TIMEOUT = 4;
+}
+
+enum AirFeatureType {
+	InvalidAirFeature = 0;
+	eCO2 = 1;
+	TVOC = 2;
+}
+
+message SensorAirQualityRequest {
+	AirFeatureType air_feature = 1;
+	double value = 2;
+}
+
+message SensorAirQualityResponse {
+	RequestStatus status = 1;
+}
+
+service SensorAirQualityService {
+	rpc SendAirFeature(SensorAirQualityRequest) returns (SensorAirQualityResponse);
+	rpc SendAirFeatures(stream SensorAirQualityRequest) returns (stream SensorAirQualityResponse);
+}
+
+enum EnvironmentFeatureType {
+	InvalidEnvironmentFeature = 0;
+	TEMPERATURE = 1;
+	GAS = 2;
+	HUMIDITY = 3;
+	PRESSURE = 4;
+	ALTITUDE = 5;
+}
+
+message SensorEnvironmentRequest {
+	EnvironmentFeatureType environment_feature = 1;
+	double value = 2;
+}
+
+message SensorEnvironmentResponse {
+	RequestStatus status = 1;
+}
+
+service SensorEnvironmentService {
+	rpc SendEnvironmentFeature (SensorEnvironmentRequest) returns (SensorEnvironmentResponse);
+	rpc SendEnvironmentFeatures (stream SensorEnvironmentRequest) returns (stream SensorEnvironmentResponse);
+}

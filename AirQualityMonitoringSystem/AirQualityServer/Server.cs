@@ -39,7 +39,8 @@ namespace AirQualityServer
         {
             get
             {
-                yield return Generated.AirQualityService.BindService(new Services.AirQualityService());
+                yield return Generated.SensorAirQualityService.BindService(new Services.SensorAirQualityService());
+                yield return Generated.SensorEnvironmentService.BindService(new Services.SensorEnvironmentService());
             }
         }
 
