@@ -2,6 +2,8 @@
 {
     internal static class AirQualityValidator
     {
+        //reference values should be declared in a file (persistence)
+        
         /// <summary>
         /// </summary>
         /// <param name="value">The resistence in Ohms of the gas sensor.</param>

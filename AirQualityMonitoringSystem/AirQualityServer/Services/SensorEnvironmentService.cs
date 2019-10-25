@@ -18,6 +18,8 @@ namespace AirQualityServer.Services
         public override Task<SensorEnvironmentResponse> SendEnvironmentFeature(SensorEnvironmentRequest request, ServerCallContext context)
         {
             Logger.Info(LoggerMessages.ServiceRequestMessage(service: nameof(SendEnvironmentFeature), host: context.Host, peer: context.Peer));
+            //Call to the Sensor Interpreter - that decide to call or not the FirebaseNotifier
+            //
             return Task.FromResult(new SensorEnvironmentResponse() { Status = Status.Resolved });
         }
 
@@ -27,6 +29,8 @@ namespace AirQualityServer.Services
             while (await requestStream.MoveNext())
             {
                 var request = requestStream.Current;
+                //Call to the Sensor Interpreter - that decide to call or not the FirebaseNotifier
+                //
                 await responseStream.WriteAsync(new SensorEnvironmentResponse() { Status = Status.Resolved });
             }
         }

@@ -18,7 +18,7 @@ namespace AirQualityServer.Services
         public override Task<SensorAirQualityResponse> SendAirFeature(SensorAirQualityRequest request, ServerCallContext context)
         {
             Logger.Info(LoggerMessages.ServiceRequestMessage(service: nameof(SendAirFeature), host: context.Host, peer: context.Peer));
-            //Call to the Sensor Interpreter - that decide to call the FirebaseNotifier
+            //Call to the Sensor Interpreter - that decide to call or not the FirebaseNotifier
             //
             return Task.FromResult(new SensorAirQualityResponse() { Status = Status.Resolved });
         }
@@ -29,6 +29,8 @@ namespace AirQualityServer.Services
             while (await requestStream.MoveNext())
             {
                 var request = requestStream.Current;
+                //Call to the Sensor Interpreter - that decide to call or not the FirebaseNotifier
+                //
                 await responseStream.WriteAsync(new SensorAirQualityResponse() { Status = Status.Resolved });
             }
         }
