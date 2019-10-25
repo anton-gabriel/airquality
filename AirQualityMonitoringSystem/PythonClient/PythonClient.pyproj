@@ -24,6 +24,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PythonClient.py" />
+    <Compile Include="Sensors\AirQualitySensor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sensors\EnvironmentSensor.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirQualityPython\AirQualityPython.pyproj">
@@ -33,6 +39,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\" />
     <Folder Include="Sensors\" />
   </ItemGroup>
   <ItemGroup>
