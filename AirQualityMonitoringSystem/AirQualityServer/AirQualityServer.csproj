@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AirQuality\AirQuality.csproj" />
+    <ProjectReference Include="..\AirQualityDatabase\AirQualityDatabase.csproj" />
   </ItemGroup>
 
 </Project>
